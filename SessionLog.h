@@ -3,6 +3,7 @@
 
 #include <vector>
 #include <string>
+#include <nlohmann/json.hpp>
 
 struct Session {
     std::string sessionType; // "work" or "break"
@@ -12,11 +13,11 @@ struct Session {
 
 class SessionLog {
 private:
-    std::vector<Session> logs;
+    std::vector<nlohmann::json> logs;
 
 public:
     void logSession(const std::string& sessionType, int duration, const std::string& timestamp);
-    std::vector<Session> getSessionHistory() const;
+    std::vector<nlohmann::json> getSessionHistory() const;
 };
 
 #endif // SESSIONLOG_H
