@@ -1,17 +1,17 @@
 #include "User.h"
 
-User::User(const std::string& username) : username(username), timer() {}
+User::User(const std::string& username) : username(username), timer(std::make_shared<Timer>()) {}
 
 void User::startTimer() {
-    timer.start();
+    timer->start();
 }
 
 void User::pauseTimer() {
-    timer.pause();
+    timer->pause();
 }
 
 void User::resetTimer() {
-    timer.reset();
+    timer->reset();
 }
 
 void User::logSession(const std::string& sessionType, int duration) {
