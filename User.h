@@ -3,11 +3,12 @@
 
 #include "Timer.h"
 #include "SessionLog.h"
+#include <memory>
 
 class User {
 private:
     std::string username;
-    Timer timer;
+    std::shared_ptr<Timer> timer;
     SessionLog sessionLog;
 
 public:
