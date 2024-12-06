@@ -1,9 +1,13 @@
 #include "Timer.h"
+#include <stdexcept>
 
 Timer::Timer(int workDuration, int breakDuration)
     : workDuration(workDuration), breakDuration(breakDuration), status("Idle"), remainingTime(0) {}
 
 void Timer::start() {
+    if (workDuration <= 0 || breakDuration <= 0) {
+        throw std::invalid_argument("Durations must be greater than zero.");
+    }
     status = "Running";
     remainingTime = workDuration * 60; // Convert to seconds
 }
