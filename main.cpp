@@ -4,14 +4,14 @@
 
 int main() {
     try {
-        auto config = ConfigManager::loadConfig("data/config.json");
+        auto config = ConfigManager::loadConfig("config.json");
         User user(config["username"]);
         
         std::cout << "Welcome, " << config["username"] << "!" << std::endl;
         user.startTimer();
         user.logSession("work", config["workDuration"]);
         
-        ConfigManager::saveLogs("data/sessions.json", user.getSessionLog().getSessionHistory());
+        ConfigManager::saveLogs("sessions.json", user.getSessionLog().getSessionHistory());
     } catch (const std::exception& e) {
         std::cerr << "Error: " << e.what() << std::endl;
     }
