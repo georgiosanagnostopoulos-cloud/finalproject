@@ -19,6 +19,7 @@ public:
     void resetTimer();
     void logSession(const std::string& sessionType, int duration);
     SessionLog getSessionLog() const;
+    std::string getUsername() const; // Added this getter
 };
 
 #endif // USER_H

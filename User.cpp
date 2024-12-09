@@ -21,3 +21,7 @@ void User::logSession(const std::string& sessionType, int duration) {
 SessionLog User::getSessionLog() const {
     return sessionLog;
 }
+
+std::string User::getUsername() const {
+    return username;
+}
