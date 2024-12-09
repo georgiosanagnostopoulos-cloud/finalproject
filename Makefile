@@ -1,10 +1,17 @@
-all: main api
+# Go parameters
+GOCMD = go
+GOBUILD = $(GOCMD) build
+GORUN = $(GOCMD) run
+GOTEST = $(GOCMD) test
+BINARY_NAME = api
 
-main: main.cpp Timer.cpp SessionLog.cpp User.cpp ConfigManager.cpp
-	g++ -o main main.cpp Timer.cpp SessionLog.cpp User.cpp ConfigManager.cpp -I. -I./nlohmann -lpthread
+all: build
 
-api: api.cpp Timer.cpp SessionLog.cpp User.cpp ConfigManager.cpp
-	g++ -o api api.cpp Timer.cpp SessionLog.cpp User.cpp ConfigManager.cpp -I. -I./nlohmann -lpthread
+build:
+	$(GOBUILD) -o $(BINARY_NAME) api.go
+
+run: build
+	./$(BINARY_NAME)
 
 clean:
-	rm -f main api
+	rm -f $(BINARY_NAME)
