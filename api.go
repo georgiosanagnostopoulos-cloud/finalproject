@@ -192,5 +192,5 @@ func main() {
 	})
 
 	// Start server on port 8080
-	e.Logger.Fatal(e.Start(":7080"))
+	e.Logger.Fatal(e.Start(":6680"))
 }
